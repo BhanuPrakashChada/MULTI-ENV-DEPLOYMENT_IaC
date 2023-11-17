@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Monitor designed by "Bhanu!"</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>System Monitor App designed by "Bhanu!"</h1>
+        </div>
+
+        <div class="section">
+            <div class="plot-container">
+                {{ cpu_plot | safe }}
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="plot-container">
+                {{ memory_plot | safe }}
+            </div>
+        </div>
+
+        {% if battery_plot %}
+        <div class="section">
+            <div class="plot-container">
+                {{ battery_plot | safe }}
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="section">
+            <div class="plot-container">
+                {{ process_plot | safe }}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

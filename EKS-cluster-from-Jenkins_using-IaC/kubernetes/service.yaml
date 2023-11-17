@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: CICD-proj-service
+spec:
+  selector:
+    app: CICD-proj
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+  type: LoadBalancer
